@@ -20,19 +20,24 @@ to find your steam comaptible games.
 ## Installation Instructions
 
 1. **Download the latest version:**
-   Download the latest release from GitHub using `wget`:
 ```bash
-wget https://github.com/yourusername/OpenTrack-launcher/releases/download/v1.0/Opentrack-launcher-v1.0.tar.gz
+wget $(curl -s https://api.github.com/repos/hrHVN/OpenTrack-launcher/releases/latest | grep "browser_download_url.*tar.gz" | cut -d '"' -f 4)
 ```
 
 2. **Extract the contents**
 ```bash
-tar -xvzf Opentrack-launcher-v1.0.tar.gz
+tar -xzf Opentrack-launcher-v[version number].tar.gz
 ```
+example:
+```bash
+tar -xzf Opentrack-launcher-v1.0.0.tar.gz
+```
+
 3. **Change directory to the folder containing install.sh**
 ```bash
-cd Opentrack-launcher
+cd src
 ```
+
 4. **Make the install script executable**
 ```bash
 chmod +x install.sh
