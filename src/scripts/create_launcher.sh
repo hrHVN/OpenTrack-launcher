@@ -33,7 +33,7 @@ Comment=Launches $GAME_NAME with Opentrack using a script
 Exec=$SCRIPT_DIR/"launch_$GAME_NAME.sh"
 Icon=$HOME/.steam/root/clientui/vr/icon_steam_vr.png
 Terminal=false
-Categories=Game;
+Categories=Game
 EOF
 
 
