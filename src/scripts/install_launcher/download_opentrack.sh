@@ -1,23 +1,21 @@
 #!/bin/bash
 
-FOLDER=$1
 #
 #   Install OpenTrack
 #
 log "Installing OpenTrack ..."
-sleep 0.5
+sleep 0.3
 
-if [ -d "$FOLDER/opentrack" ]; then
+if [ -d "$APP_DIR/opentrack" ]; then
 
     log "OpenTrack is already installed. Skipping download."
 
-    else
+else
     #
     #   Create the Program folder
     #
-    verify_folder $FOLDER
-    # mkdir -p $FOLDER
-    cd $FOLDER
+    verify_folder "$APP_DIR/opentrack"
+    cd $APP_DIR
 
     # Download and extract OpenTrack
     log "Downloading and extracting OpenTrack..."
