@@ -35,7 +35,7 @@ save_config() {
 _PROGRESS=0
 overlay_loading_bar() {
     # Temporary file for holding progress values
-    local progress_file="/tmp/OTL_progress.cfg"
+    local progress_file="/tmp/OTL_progress-tmp"
     local max=50
     local progress=0
     local bar=""
@@ -48,7 +48,7 @@ overlay_loading_bar() {
 
     while [ "$progress" -le "$max" ]; do
         # Read progress from file
-        progress=$progress_file
+        progress=$(cat $progress_file)
         
         # Generate the bar
         bar=$(printf "%-${progress}s" "#" | tr ' ' '#')
@@ -71,9 +71,9 @@ overlay_loading_bar() {
 #   UpdateLoadingBar 13                 # This adds 13% to the bar, it does NOT set the value to 13
 #
 UpdateLoadingBar() {
-    if [ _PROGRESS -lt 49 ];then
+    if [ "$_PROGRESS" -lt 49 ];then
         _PROGRESS=$(($_PROGRESS + $1))
-        echo $_PROGRESS > "/tmp/OTL_progress.cfg"
+        echo "$_PROGRESS" > "/tmp/OTL_progress-tmp"
     fi
 }
 #
@@ -84,9 +84,9 @@ UpdateLoadingBar() {
 #   CompleteLoadingBar $loading_bar_pid     # Kill the background proces and set the bar to 100%
 #
 CompleteLoadingBar() {
-    local progress="/tmp/OTL_progress.cfg"
+    local progress="/tmp/OTL_progress-tmp"
     if [ $progress -lt 50 ];then
-        echo 50 > "/tmp/OTL_progress.cfg"
+        echo 50 > "/tmp/OTL_progress-tmp"
     fi
     sleep 1
 

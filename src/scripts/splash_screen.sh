@@ -23,5 +23,5 @@ cat <<EOF
                                 (Des 2024)
                                 
                https://github.com/hrHVN/OpenTrack-launcher
-                              v $(cat version)
+                              v $(cat OTL_VERSION)
 EOF
