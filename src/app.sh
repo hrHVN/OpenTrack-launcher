@@ -105,7 +105,7 @@ $(printf "%-${TERMINAL_WIDTH}s" "" | tr ' ' '*')
     Using Flatpak: $USING_FLATPAK
     Steam command: $STEAM_CMD
     Steam directory: $STEAM_DIR
-    Games directory: $PROTON_DIR
+    Games directory: $STEAM_COMP
     Protontrics command: $PROTON_CMD
     Start menu directory: $STARTMENU_DIR
 

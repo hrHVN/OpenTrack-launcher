@@ -51,7 +51,7 @@ if [ -z "$STEAM_CMD" ]; then
         save_config "STEAM_CMD" "flatpak run $ST_PT"
         log "Steam flatpack instalation detected!"
 
-    elif ! command -v "protontricks" &> /dev/null;then
+    elif command -v "steam" &> /dev/null;then
         save_config "STEAM_CMD" "steam steam://rungameid"
         log "local Steam instalation detected!"
         
